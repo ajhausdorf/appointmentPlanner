@@ -8,7 +8,7 @@ export const ContactsPage = (props) => {
   contact info and duplicate check
   */
 
-  const [contactInfo, setContactInfo] = useState({});
+  const [contactInfo, setContactInfo] = useState({name: '', phone: '', email: ''});
   const [duplicate, setDuplicate] = useState(false);
 
   const contacts = props.contacts;
@@ -18,7 +18,7 @@ export const ContactsPage = (props) => {
     e.preventDefault();
     const {name, phone, email} = contactInfo;
     addContact(name, phone, email);
-    setContactInfo({});
+    setContactInfo({name: '', phone: '', email: ''});
   };
 
   const handleContactChange = ({target}) => {
@@ -39,7 +39,7 @@ export const ContactsPage = (props) => {
     if(contacts.find(contact => contact.name === contactInfo.name)) {
       setDuplicate(true);
     }
-  }, [contactInfo])
+  }, [contactInfo]);
 
   return (
     <div>

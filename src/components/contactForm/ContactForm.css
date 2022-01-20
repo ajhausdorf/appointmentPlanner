@@ -1,0 +1,11 @@
+form {
+    width: 33%;
+}
+
+input {
+    margin-top: 10px;
+}
+
+input[type=submit] {
+    width: 70px;
+}
