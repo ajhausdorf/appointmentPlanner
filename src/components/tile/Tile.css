@@ -1,0 +1,6 @@
+.tile-container {
+    border: 1px solid black;
+    width: 33%;
+    text-align: center;
+    padding: 50px;
+}
