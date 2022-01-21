@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const AppointmentsPage = () => {
   /*
   Define state variables for 
   appointment info
   */
+ 
+  const [appointments, setAppointments] = useState({});
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
