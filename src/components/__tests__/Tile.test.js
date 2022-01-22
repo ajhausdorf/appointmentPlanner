@@ -1,5 +1,5 @@
-import { Tile } from '../tile/Tile';
 import React from 'react';
+import { Tile } from '../tile/Tile';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
