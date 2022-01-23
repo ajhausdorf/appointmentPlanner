@@ -25,7 +25,7 @@ export const App = () => {
     setContacts((prev) => prev.filter((contact) => name !== contact.name));
   }
 
-  const addAppointments = (title, contact, date, time) => {
+  const addAppointment = (title, contact, date, time) => {
     const newAppointment = { title, contact, date, time };
     setAppointments((prev) => [...prev, newAppointment]);
   }
@@ -34,7 +34,7 @@ export const App = () => {
       <main>
         <SplitScreen leftWeight={1} rightWeight={1}>
           <ContactsPage contacts={contacts} addContact={addContact} onRemove={removeContact}/>
-          <AppointmentsPage appointments={appointments} addAppointments={addAppointments}/>
+          <AppointmentsPage appointments={appointments} addAppointment={addAppointment}/>
         </SplitScreen>
       </main>
   );

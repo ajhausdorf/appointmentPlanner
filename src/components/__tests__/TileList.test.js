@@ -11,7 +11,7 @@ test("take an array and creates tiles", () => {
         {name: 'Craig', phone: '316-555-4767', email: 'test4@test.com'}
     ];
     
-    render(<TileList contacts={contacts}/>);
+    render(<TileList tileListArray={contacts}/>);
     const tile1NameP = screen.getByText('Andrew');
     expect(tile1NameP).toBeInTheDocument();
     expect(tile1NameP).toHaveTextContent('Andrew');

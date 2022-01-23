@@ -10,12 +10,12 @@ export const ContactForm = ({
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
-      <input type="text" name="name" id="name"value={name || ''} onChange={handleContactChange} />
+      <input type="text" name="name" id="name" value={name || ''} onChange={handleContactChange} />
       <label htmlFor="phone">Phone</label>
       <input type="text" name="phone" id="phone" value={phone || ''} pattern="[1-9][0-9]{2}-[1-9][0-9]{2}-[0-9]{4}" title="Please match the following format: 217-555-2345" onChange={handleContactChange} />
       <label htmlFor="email">Email</label>
       <input type="text" name="email" id="email" value={email || ''} onChange={handleContactChange} />
-      <input role="button" type="submit"  value="Add Contact" />
+      <input type="submit" data-testid="addContactBtn" value="Add Contact" />
     </form>
   );
 };

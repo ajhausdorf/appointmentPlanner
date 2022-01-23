@@ -1,14 +1,14 @@
 import React from "react";
-import {Tile} from "../tile/Tile"
+import { Tile } from "../tile/Tile"
 
 export const TileList = (props) => {
-  const { contacts, onRemove } = props;
+  const { tileListArray, onRemove } = props;
   
   return (
       <div>
         {
-          contacts.map((contact, index) => {
-            return <Tile key={index} contact={contact} onRemove={onRemove}/>
+          tileListArray.map((tile, index) => {
+            return <Tile key={index} tile={tile} onRemove={onRemove}/>
           })
         }
       </div>

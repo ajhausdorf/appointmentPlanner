@@ -20,6 +20,20 @@ export const AppointmentForm = ({
   };
 
   return (
-    AppointmentForm
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="title">Title</label>
+      <input type="text" id="title" name="title"/>
+
+      <label htmlFor="contact">Contact</label>
+      <input type="text" id="contact" name="contact" />
+
+      <label htmlFor="date">Date</label>
+      <input type="text" id="date" name="date" />
+
+      <label htmlFor="time">Time</label>
+      <input type="text" id="time" name="time" />
+      
+      <input type="submit" data-testid="addAppointmentBtn" value="Add Appointment"/>
+    </form>
   );
 };

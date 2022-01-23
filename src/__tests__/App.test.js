@@ -15,7 +15,7 @@ test("adds a new contact", async () => {
     const inputName = screen.getByLabelText('Name');
     const inputPhone = screen.getByLabelText('Phone');
     const inputEmail = screen.getByLabelText('Email');
-    const submitButton = screen.getByRole('button');
+    const submitButton = screen.getByTestId('addContactBtn');
 
     //Fill out the form and submit
     userEvent.type(inputName, 'Jerry');
@@ -50,7 +50,7 @@ test('can remove a single contact', async () => {
     const inputName = screen.getByLabelText('Name');
     const inputPhone = screen.getByLabelText('Phone');
     const inputEmail = screen.getByLabelText('Email');
-    const submitButton = screen.getByRole('button');
+    const submitButton = screen.getByTestId('addContactBtn');
 
     //fill out form, create contact
     userEvent.type(inputName, 'Jerry');
@@ -63,8 +63,6 @@ test('can remove a single contact', async () => {
     userEvent.type(inputPhone, '313-554-5555');
     userEvent.type(inputEmail, 'test6@test.com');
     userEvent.click(submitButton);
-    
-    screen.debug();
 
     //act
     const removeButton = screen.getAllByText('x')[0];
@@ -81,4 +79,17 @@ test('can remove a single contact', async () => {
     expect(annie).toHaveTextContent('Annie');
 
 
-})
+});
+
+test('Adds a new appointment', () => {
+    render(<App />);
+    const inputTitle = screen.getByLabelText('title');
+
+    const submit = screen.getByTestId('addAppointmentBtn');
+
+    userEvent.type(inputTitle, 'Meet for Lunch');
+    userEvent.click(submit);
+
+    const newAppointment = screen.getByText('Meet for Lunch');
+    expect(newAppointment).toBeInTheDocument();
+});
