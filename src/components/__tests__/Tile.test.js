@@ -6,7 +6,9 @@ import '@testing-library/jest-dom';
 test('Should render a tile', () => {
     const object = {name: 'Andrew', phone: '316-555-4867', email: 'test@test.com'};
     render(<Tile object={object} key={0}/>);
-    screen.debug();
+    const tile = screen.getByText('Andrew');
+    expect(tile).toBeInTheDocument();
+    expect(tile).toHaveTextContent('Andrew');
 });
 
 test('Should render 5 tiles', () => {

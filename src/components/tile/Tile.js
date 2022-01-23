@@ -6,11 +6,12 @@ export const Tile = (props) => {
   const keys = Object.keys(object);
   return (
     <div className="tile-container">
+      <span className="close">x</span>
       { 
-        keys.map(key => {
+        keys.map((key, index) => {
           console.log('render');
           return (
-            <p>{object[key]}</p>
+            <p key={index} className={index === 0 ? 'tile-title' : 'tile'}>{object[key]}</p>
           );
         })
       }

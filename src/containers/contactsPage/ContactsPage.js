@@ -11,8 +11,7 @@ export const ContactsPage = (props) => {
   const [contactInfo, setContactInfo] = useState({name: '', phone: '', email: ''});
   const [duplicate, setDuplicate] = useState(false);
 
-  const contacts = props.contacts;
-  const addContact = props.addContact;
+  const {contacts, addContact, removeContact } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +19,10 @@ export const ContactsPage = (props) => {
     addContact(name, phone, email);
     setContactInfo({name: '', phone: '', email: ''});
   };
+
+  const handleRemoveContact = ({target}) => {
+
+  }
 
   const handleContactChange = ({target}) => {
     const {name, value} = target;
