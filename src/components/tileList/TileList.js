@@ -2,13 +2,13 @@ import React from "react";
 import {Tile} from "../tile/Tile"
 
 export const TileList = (props) => {
-  const propsArr = props.array;
+  const { contacts, onRemove } = props;
   
   return (
       <div>
         {
-          propsArr.map((obj, index) => {
-            return <Tile key={index} object={obj}/>
+          contacts.map((contact, index) => {
+            return <Tile key={index} contact={contact} onRemove={onRemove}/>
           })
         }
       </div>

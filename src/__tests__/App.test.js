@@ -37,7 +37,7 @@ test("adds a new contact", async () => {
     expect(newContactEmailP).toHaveTextContent('test5@test.com');
 });
 
-test('can remove a contact', async () => {
+test('can remove a single contact', async () => {
 
     //render add and set the state with test contacts
     render(<App />);
@@ -58,6 +58,14 @@ test('can remove a contact', async () => {
     userEvent.type(inputEmail, 'test5@test.com');
     userEvent.click(submitButton);
 
+    //fill out form, create contact2
+    userEvent.type(inputName, 'Annie');
+    userEvent.type(inputPhone, '313-554-5555');
+    userEvent.type(inputEmail, 'test6@test.com');
+    userEvent.click(submitButton);
+    
+    screen.debug();
+
     //act
     const removeButton = screen.getAllByText('x')[0];
     userEvent.click(removeButton);
@@ -67,4 +75,10 @@ test('can remove a contact', async () => {
         const removedContact = screen.queryByText('Jerry');
         expect(removedContact).toBeNull();
     });
+
+    const annie = screen.getByText('Annie');
+    expect(annie).toBeInTheDocument();
+    expect(annie).toHaveTextContent('Annie');
+
+
 })
